@@ -9,6 +9,7 @@ const crypto = require('crypto')
 exports.signup = async (req, res) => {
 
     const USERDATA = req.body
+
     const DATA = new usersDetails(USERDATA)
 
     /// check user not registered
@@ -76,4 +77,20 @@ exports.resendOtp = async (req, res) => {
     }).catch(error => {
         res.send({ ErrorMsg: error })
     })
+}
+
+exports.showUserDetails = async (req, res) => {
+    const { mobileNumber } = req.body
+
+    try {
+        /// check user not registered
+        const FIND_USER = await usersDetails.findOne({ mobileNumber: mobileNumber })
+        if (FIND_USER) {
+            res.send({userDetails : FIND_USER})
+        }
+        else {
+            res.send({ MSG: "USER DOES NOT EXSIST" })
+        }
+    } catch { }
+
 }

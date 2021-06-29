@@ -39,7 +39,50 @@ const EVENTSCHEMA = new SCHEMA({
     otp: {
         type: String,
         default: "NA"
+    },
+    religion: {
+        type: String,
+        default: "NA"
+    },
+    cast: {
+        type: String,
+        default: "NA"
+    },
+    education: {
+        type: String,
+        default: "NA"
+    },
+    typeOfOccupation: {
+        type: String,
+        default: "NA"
+    },
+    livingCity: {
+        type: String,
+        default: "NA"
+    },
+    naticePlace: {
+        type: String,
+        default: "NA"
+    },
+    ManglikStatus: {
+        type: String,
+        default: "NA"
+    },
+    birthCity: {
+        type: String,
+        default: "NA"
+    },
+    birthTime: {
+        type: String,
+        default: "NA"
+    },
+    profileImage: {
+        type: String,
+        default: "NA"
     }
-})
+
+},
+    { timestamps: true }
+)
 
 module.exports = MONGOOSE.model("usersDetails", EVENTSCHEMA)
